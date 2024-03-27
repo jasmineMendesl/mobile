@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#87C4CB"
-    android:backgroundTint="#87C4CB"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -24,57 +23,61 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="181dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="uma bomba de gasolina ilustrando o app"
             android:paddingVertical="10dp"
             android:textAlignment="center"
-            app:srcCompat="@mipmap/ic_launcher_foreground" />
+            app:srcCompat="@drawable/posto"
+            tools:srcCompat="@drawable/posto" />
 
         <TextView
             android:id="@+id/titulo"
+            style="@style/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:text="Gasolina ou Álcool?"
             android:textAlignment="center"
-            android:textColor="#87C4CB"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edAlcool"
+            style="@style/text"
+            android:id="@+id/edGasolina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:ems="10"
-            android:hint="Preço da gasolina"
+            android:hint="Digite o preço da gasolina:"
             android:inputType="numberDecimal" />
 
         <EditText
-            android:id="@+id/edGasolina"
+            android:id="@+id/edAlcool"
+            style="@style/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:ems="10"
-            android:hint="alcool"
+            android:hint="Digite o preço da alcool:"
             android:inputType="numberDecimal" />
 
         <Switch
             android:id="@+id/swPercentual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginHorizontal="40dp"
+            android:layout_gravity="center"
             android:text="@string/_75" />
 
         <Button
             android:id="@+id/btCalcular"
+            style="@style/bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginVertical="20dp"
-            android:backgroundTint="#CB584C"
+            android:backgroundTint="#30618C"
             android:text="Calcular" />
 
         <TextView

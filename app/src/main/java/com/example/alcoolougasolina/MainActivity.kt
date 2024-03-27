@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -13,19 +15,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i("PDM24.1","No onCreate, $percentual")
 
-        percentual=0.7
-        val btCalc: Button = findViewById(R.id.btCalcular)
-        val textMsg:TextView= findViewById(R.id.textMsg)
-        //btCalc.setBackgroundColor(Color.CYAN)
-        btCalc.setOnClickListener(View.OnClickListener {
-            //código do evento
-            percentual=0.75
-            textMsg.text="Já tenho o percentual"
-            Log.d("PDM24","No btCalcular, $percentual")
-        })
+        val btCalcular: Button = findViewById(R.id.btCalcular)
+        val etValorAlcool: EditText = findViewById(R.id.edAlcool)
+        val etValorGasolina: EditText = findViewById(R.id.edGasolina)
+        val textResultado: TextView = findViewById(R.id.textMsg)
+        val switchPercentual: Switch = findViewById(R.id.swPercentual)
+
+        switchPercentual.setOnCheckedChangeListener { _, isChecked ->
+            percentual = if (isChecked) 0.75 else 0.7
+        }
+
+        btCalcular.setOnClickListener {
+            val valorAlcoolStr = etValorAlcool.text.toString()
+            val valorGasolinaStr = etValorGasolina.text.toString()
+
+            if (valorAlcoolStr.isNotEmpty() && valorGasolinaStr.isNotEmpty()) {
+                val valorAlcool = valorAlcoolStr.toDouble()
+                val valorGasolina = valorGasolinaStr.toDouble()
+
+                val calculo = valorAlcool / (valorGasolina * percentual)
+
+                val mensagem = if (calculo <= 1) {
+                    "Abasteça com álcool ($percentual% do valor da gasolina ou menos)"
+                } else {
+                    "Abasteça com gasolina"
+                }
+
+                textResultado.text = mensagem
+            }
+        }
     }
+
 override fun onResume(){
     super.onResume()
     Log.d("PDM24","No onResume, $percentual")

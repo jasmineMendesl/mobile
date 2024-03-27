@@ -16,4 +16,20 @@
         <item name="android:textColorHint">@color/black</item>
         <item name="android:backgroundTint">@color/white</item>
     </style>
+
+    <style name = "background">
+        <item name = "android:background">#04C4D9 </item>
+        <item name = "android:backgroundTint">#04C4D9 </item>
+    </style>
+
+    <style name = "text">
+        <item name="android:textColor"> #011140</item>
+        <item name="android:textColorHint"> #011140</item>
+
+    </style>
+
+    <style name = "bottom">
+        <item name = "android:color">#30618C</item>
+    </style>
+
 </resources>
